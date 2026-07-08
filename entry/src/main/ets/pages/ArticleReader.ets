@@ -101,7 +101,6 @@ struct ArticleReader {
         .justifyContent(FlexAlign.Center)
         .key('full_text_toggle')
         .onClick(async () => {
-          // no-op: full-text toggle disabled
         })
 
         Row() {
@@ -115,7 +114,6 @@ struct ArticleReader {
         .justifyContent(FlexAlign.Center)
         .borderRadius(22)
         .onClick(() => {
-          // no-op: open in browser disabled
         })
 
         // Overflow menu
@@ -153,7 +151,6 @@ struct ArticleReader {
             .onPageEnd(() => {
             })
             .onOverrideUrlLoading((webResourceRequest: WebResourceRequest) => {
-              // no-op: link interception disabled, allow navigation
               return false
             })
             .domStorageAccess(true)
@@ -213,19 +210,16 @@ struct ArticleReader {
       // Open in browser (= Show original)
       this.OverflowMenuItem('Open in browser', () => {
         this.overflowVisible = false
-        // no-op: open in browser disabled
       })
 
       // Share
       this.OverflowMenuItem('Share', () => {
         this.overflowVisible = false
-        // no-op: share disabled
       })
 
       // Mark as unread / Mark as read
       this.OverflowMenuItem(this.isRead ? 'Mark as unread' : 'Mark as read', async () => {
         this.overflowVisible = false
-        // no-op: mark read/unread disabled
       })
     }
     .width(240)

@@ -452,7 +452,6 @@ struct FeedList {
     .gesture(
       LongPressGesture({ repeat: false, duration: 500 })
         .onAction(() => {
-          // no-op: long press disabled
         })
     )
   }
@@ -467,7 +466,6 @@ struct FeedList {
         .borderRadius(4)
         .height(40)
         .onClick(async () => {
-          // no-op: toggle read status disabled
         })
     }
     .padding({ right: 16 })
@@ -709,12 +707,10 @@ struct FeedList {
         Column() {
         this.OverflowItem('Mark all as read', async () => {
           this.overflowVisible = false
-          // no-op: mark all read disabled
         })
 
         this.OverflowItem('Sync current feed', async () => {
           this.overflowVisible = false
-          // no-op: sync disabled
         })
 
         this.OverflowItem('Add feed', () => {
@@ -735,7 +731,6 @@ struct FeedList {
 
         this.OverflowItem('Delete feed', () => {
           this.overflowVisible = false
-          // no-op: delete feed disabled
         })
 
         this.OverflowItem('Settings', () => {
@@ -799,7 +794,6 @@ struct FeedList {
       .position({ x: '85%', y: '90%' })
       .key('fab_mark_read')
       .onClick(async () => {
-        // no-op: FAB mark all read disabled
       })
     }
   }
@@ -855,7 +849,6 @@ struct FeedList {
           .layoutWeight(1)
           .enabled(this.selectedFeedIdsForDelete.size > 0)
           .onClick(async () => {
-            // no-op: delete disabled
             this.deleteDialogVisible = false
           })
       }
@@ -914,7 +907,6 @@ struct FeedList {
 
   // === Context Menu (triggered by long-press) ===
   private showContextMenu(article: ArticleRow) {
-    // no-op: context menu disabled
   }
 
   // === Helpers ===

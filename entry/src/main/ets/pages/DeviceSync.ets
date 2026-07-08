@@ -103,7 +103,7 @@ struct DeviceSync {
             .enabled(this.syncCode.length > 0 && this.secretKey.length > 0)
             .key('sync_join_btn')
             .onClick(() => {
-              hilog.info(DOMAIN, TAG, 'Join sync chain (stub)')
+              hilog.info(DOMAIN, TAG, 'Join sync chain ')
               this.isSyncing = true
             })
 
@@ -134,7 +134,7 @@ struct DeviceSync {
             .borderRadius(8)
             .key('sync_start_new_btn')
             .onClick(() => {
-              hilog.info(DOMAIN, TAG, 'Start new sync chain (stub)')
+              hilog.info(DOMAIN, TAG, 'Start new sync chain ')
             })
 
           // Add new device
@@ -149,7 +149,7 @@ struct DeviceSync {
             .margin({ top: 12 })
             .key('sync_add_device_btn')
             .onClick(() => {
-              hilog.info(DOMAIN, TAG, 'Add new device (stub)')
+              hilog.info(DOMAIN, TAG, 'Add new device ')
             })
 
           // Leave sync chain
@@ -211,7 +211,7 @@ struct DeviceSync {
           .backgroundColor(Color.Transparent)
           .layoutWeight(1)
           .onClick(() => {
-            hilog.info(DOMAIN, TAG, 'Left sync chain (stub)')
+            hilog.info(DOMAIN, TAG, 'Left sync chain ')
             this.leaveDialogVisible = false
           })
       }

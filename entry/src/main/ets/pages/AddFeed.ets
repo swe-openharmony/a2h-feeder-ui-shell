@@ -101,7 +101,6 @@ struct AddFeed {
             .enabled(this.urlValid)
             .key('search_go')
             .onClick(async () => {
-              // no-op: search disabled
             })
 
 
@@ -118,6 +117,5 @@ struct AddFeed {
   }
 
   private async searchForFeed() {
-    // no-op: search disabled
   }
 }

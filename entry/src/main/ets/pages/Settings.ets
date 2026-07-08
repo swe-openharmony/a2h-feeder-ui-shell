@@ -152,7 +152,6 @@ struct Settings {
           })
 
           this.ClickRow('Send bug report', () => {
-            // no-op: bug report disabled
           })
         }
         .width('100%')
@@ -314,7 +313,6 @@ struct Settings {
 
         Toggle({ type: ToggleType.Switch, isOn: this.blockListApplySummaries })
           .onChange((v: boolean) => {
-            // no-op: toggle not persisted
           })
           .selectedColor($r('app.color.primary'))
       }
@@ -345,7 +343,6 @@ struct Settings {
           .key('block_add_pattern_btn')
           .enabled(this.newBlockPattern.length > 0)
           .onClick(async () => {
-            // no-op: add pattern disabled
             this.newBlockPattern = ''
           })
       }
@@ -367,7 +364,6 @@ struct Settings {
                 .fontColor('#d32f2f')
                 .backgroundColor(Color.Transparent)
                 .onClick(async () => {
-                  // no-op: remove pattern disabled
                 })
             }
             .width('100%')

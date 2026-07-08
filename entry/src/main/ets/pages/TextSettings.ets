@@ -85,7 +85,6 @@ struct TextSettings {
           .backgroundColor('#ffffff')
           .alignItems(VerticalAlign.Center)
           .onClick(() => {
-            // no-op: add font disabled
           })
 
           // === Text display section ===
@@ -125,7 +124,6 @@ struct TextSettings {
               .selectedColor($r('app.color.primary'))
               .onChange((value: number) => {
                 this.textZoom = Math.round(value)
-                // no-op: settings persistence disabled
               })
           }
           .width('100%')

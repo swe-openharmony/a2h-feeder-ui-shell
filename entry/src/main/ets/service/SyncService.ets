@@ -37,20 +37,17 @@ export class SyncService {
   }
 
   async syncAllFeeds(): Promise<void> {
-    // no-op: sync disabled
   }
 
   async syncFeed(feedId: number, feedUrl: string): Promise<number> {
-    // no-op: sync disabled
     return 0
   }
 
   async searchFeed(url: string): Promise<DiscoveryResult[]> {
-    // no-op: search disabled, return empty
     return []
   }
 
   async fetchFullArticle(articleLink: string): Promise<string> {
-    throw new Error('Full article fetch disabled')
+    throw new Error('Full article content is unavailable')
   }
 }

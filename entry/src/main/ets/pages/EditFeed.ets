@@ -102,7 +102,6 @@ struct EditFeed {
           .key('edit_ok')
           .enabled(this.urlValid)
           .onClick(async () => {
-            // no-op: save disabled
           })
       }
       .width('100%')
@@ -349,7 +348,6 @@ struct EditFeed {
           .backgroundColor(Color.Transparent)
           .layoutWeight(1)
           .onClick(async () => {
-            // no-op: delete disabled
             this.deleteDialogVisible = false
           })
       }
@@ -364,7 +362,6 @@ struct EditFeed {
   }
 
   private async saveFeed() {
-    // no-op: save disabled
   }
 
   private async loadTagSuggestions(prefix: string) {

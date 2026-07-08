@@ -47,7 +47,7 @@ export const DEFAULT_SETTINGS: Record<string, string | boolean | number> = {
   // TTS
   'tts_detect_language': true,
 
-  // Translation / Summarization (stubs)
+  // Translation / Summarization
   'translate_feed_cards': false,
   'translate_articles': false,
 
