@@ -1,0 +1,12 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/FeedList",
+    "pages/ArticleReader",
+    "pages/AddFeed",
+    "pages/EditFeed",
+    "pages/Settings",
+    "pages/TextSettings",
+    "pages/DeviceSync"
+  ]
+}
