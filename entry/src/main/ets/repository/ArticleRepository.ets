@@ -79,15 +79,9 @@ export class ArticleRepository {
     return DatabaseHelper.getInstance().getStore()
   }
 
+  // Public shell fallback: no query matching is implemented here.
   async searchArticles(query: string): Promise<ArticleRow[]> {
-    const store = this.getStore()
-    const sql = `SELECT fi.*, f.title as feedTitle FROM feed_items fi
-      JOIN feeds f ON fi.feed_id = f.id
-      WHERE (fi.plainTitle LIKE ? OR fi.plainSnippet LIKE ?) AND fi.blocked = 0
-      ORDER BY fi.primarySortTime DESC`
-    const likeQuery = `%${query}%`
-    const resultSet = await store.querySql(sql, [likeQuery, likeQuery])
-    return this.collectArticles(resultSet)
+    return []
   }
 
   async getArticlesByFeed(feedId: number, filterUnread: boolean = true,
@@ -155,41 +149,52 @@ export class ArticleRepository {
   }
 
   async markAllRead(feedId: number = 0): Promise<number> {
+  // Public shell stub: read state mutation is intentionally absent.
     return 0
   }
 
   async markRead(articleId: number): Promise<void> {
+  // Public shell stub: read state mutation is intentionally absent.
   }
 
   async markUnread(articleId: number): Promise<void> {
+  // Public shell stub: read state mutation is intentionally absent.
   }
 
   async toggleBookmark(articleId: number): Promise<boolean> {
+  // Public shell stub: bookmark mutation is intentionally absent.
     return false
   }
 
   async setBookmarked(articleId: number, bookmarked: boolean): Promise<void> {
+  // Public shell stub: bookmark mutation is intentionally absent.
   }
 
   async toggleReadStatus(articleId: number): Promise<boolean> {
+  // Public shell stub: read state mutation is intentionally absent.
     return false
   }
 
   async markAboveAsRead(articleId: number, feedId: number): Promise<number> {
+  // Public shell stub: read state mutation is intentionally absent.
     return 0
   }
 
   async markBelowAsRead(articleId: number, feedId: number): Promise<number> {
+  // Public shell stub: read state mutation is intentionally absent.
     return 0
   }
 
   async updateHtmlContent(articleId: number, htmlContent: string): Promise<void> {
+  // Public shell stub: full-text loading is intentionally absent.
   }
 
   async saveScrollPosition(articleId: number, scrollPosition: number): Promise<void> {
+  // Public shell stub: reader state mutation is intentionally absent.
   }
 
   async upsertParsedItems(feedId: number, items: ParsedFeedItem[]): Promise<number> {
+  // Public shell stub: sync state mutation is intentionally absent.
     return 0
   }
 
@@ -197,6 +202,7 @@ export class ArticleRepository {
                     pubDate: number, htmlContent: string, guid: string = '',
                     imageUrl: string = '', author: string = '',
                     unread: boolean = true, bookmarked: boolean = false): Promise<number> {
+  // Stable mock content for UI reachability.
     const store = this.getStore()
     // Use a deterministic guid based on feedId + title to prevent duplicates
     const effectiveGuid = guid.length > 0 ? guid : `seed-${feedId}-${title}`
@@ -251,6 +257,7 @@ export class ArticleRepository {
   }
 
   async resetAllToUnread(): Promise<void> {
+  // Restores the stable mock unread list at launch.
     const store = this.getStore()
     const sql = 'UPDATE feed_items SET unread = 1'
     await store.executeSql(sql, [])

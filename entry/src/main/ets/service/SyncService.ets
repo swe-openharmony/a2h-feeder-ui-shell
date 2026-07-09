@@ -33,21 +33,26 @@ export class SyncService {
   }
 
   isSyncing(): boolean {
+  // Public shell stub: sync request is intentionally absent.
     return false
   }
 
   async syncAllFeeds(): Promise<void> {
+  // Public shell stub: sync request is intentionally absent.
   }
 
   async syncFeed(feedId: number, feedUrl: string): Promise<number> {
+  // Public shell stub: sync request is intentionally absent.
     return 0
   }
 
   async searchFeed(url: string): Promise<DiscoveryResult[]> {
+  // Public shell stub: remote feed search is intentionally absent.
     return []
   }
 
   async fetchFullArticle(articleLink: string): Promise<string> {
-    throw new Error('Full article content is unavailable')
+  // Public shell stub: full-text fetch is intentionally absent.
+    return ''
   }
 }

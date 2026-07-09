@@ -60,18 +60,22 @@ export class FeedRepository {
   }
 
   async insertFeed(url: string, title: string, tag: string): Promise<number> {
+  // Public shell stub: add-feed mutation is intentionally absent.
     return 0
   }
 
   async updateFeed(feed: FeedRow): Promise<number> {
+  // Public shell stub: edit-feed mutation is intentionally absent.
     return 0
   }
 
   async deleteFeed(feedId: number): Promise<number> {
+  // Public shell stub: delete-feed mutation is intentionally absent.
     return 0
   }
 
   async deleteFeedsByIds(feedIds: number[]): Promise<number> {
+  // Public shell stub: delete-feed mutation is intentionally absent.
     return 0
   }
 
@@ -192,12 +196,15 @@ export class FeedRepository {
   }
 
   async updateLastSync(feedId: number): Promise<void> {
+  // Public shell stub: sync state mutation is intentionally absent.
   }
 
   async setCurrentlySyncing(feedId: number, syncing: boolean): Promise<void> {
+  // Public shell stub: sync state mutation is intentionally absent.
   }
 
   async seedFeed(url: string, title: string, tag: string): Promise<number> {
+  // Stable mock content for UI reachability.
     const store = this.getStore()
     // Check if feed with this URL already exists
     const checkSql = 'SELECT id FROM feeds WHERE url = ?'
