@@ -110,7 +110,7 @@ export class AppState {
       // Seed articles for feed 1 (Tech News)
       await articleRepo.seedArticle(feed1Id, 'AI breakthrough in language models',
         'Researchers announce major advances in natural language processing...', 'https://example.com/ai',
-        now - hour, '<p>Researchers announce major advances in natural language processing that could transform how we interact with technology.</p>')
+        now - hour, '<p>Researchers announce major advances in natural language processing that could transform how we interact with technology.</p><p><a href="#related-section">Jump to related section</a></p><h2 id="related-section">Related section</h2><p>Public fixture content for the seeded article.</p>')
       await articleRepo.seedArticle(feed1Id, 'New smartphone features revealed',
         'Latest flagship phone includes revolutionary camera system...', 'https://example.com/phone',
         now - 2 * hour, '<p>Latest flagship phone includes revolutionary camera system and improved battery life.</p>')
