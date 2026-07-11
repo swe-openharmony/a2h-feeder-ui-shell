@@ -40,6 +40,8 @@ struct FeedList {
   @State isRefreshing: boolean = false
   @State deleteDialogVisible: boolean = false
   @State editFeedDialogVisible: boolean = false
+  @State articleContextMenuVisible: boolean = false
+  @State opmlUnavailableAction: string = ''
   @State selectedFeedIdsForDelete: Set<number> = new Set()
   @State selectedFeedIdForEdit: number = 0
 
@@ -175,6 +177,16 @@ struct FeedList {
           // Edit feed selection dialog
           if (this.editFeedDialogVisible) {
             this.EditFeedSelectionDialog()
+          }
+
+          // Presentation-only row actions. These controls never update article data.
+          if (this.articleContextMenuVisible) {
+            this.ArticleContextMenu()
+          }
+
+          // OPML is intentionally unavailable in the public UI shell.
+          if (this.opmlUnavailableAction.length > 0) {
+            this.OpmlUnavailableDialog()
           }
         }
         .width('100%')
@@ -451,6 +463,8 @@ struct FeedList {
     .gesture(
       LongPressGesture({ repeat: false, duration: 500 })
         .onAction(() => {
+          this.articleContextMenuVisible = true
+          this.overflowVisible = false
         })
     )
   }
@@ -699,10 +713,23 @@ struct FeedList {
 
         this.OverflowItem('Edit feed', () => {
           this.overflowVisible = false
+          this.editFeedDialogVisible = true
         })
 
         this.OverflowItem('Delete feed', () => {
           this.overflowVisible = false
+          this.selectedFeedIdsForDelete = new Set()
+          this.deleteDialogVisible = true
+        })
+
+        this.OverflowItem('Import feeds from OPML', () => {
+          this.overflowVisible = false
+          this.opmlUnavailableAction = 'Import feeds from OPML'
+        })
+
+        this.OverflowItem('Export feeds to OPML', () => {
+          this.overflowVisible = false
+          this.opmlUnavailableAction = 'Export feeds to OPML'
         })
 
         this.OverflowItem('Settings', () => {
@@ -784,7 +811,15 @@ struct FeedList {
         Row() {
           Checkbox()
             .select(this.selectedFeedIdsForDelete.has(feed.id))
-            .onChange((_checked: boolean) => {})
+            .onChange((checked: boolean) => {
+              const selected = new Set(this.selectedFeedIdsForDelete)
+              if (checked) {
+                selected.add(feed.id)
+              } else {
+                selected.delete(feed.id)
+              }
+              this.selectedFeedIdsForDelete = selected
+            })
             .margin({ right: 12 })
 
           Text(feed.title)
@@ -854,8 +889,9 @@ struct FeedList {
         .padding({ left: 16, right: 16 })
         .borderRadius(8)
         .onClick(() => {
+          // Selecting a row is intentionally presentation-only in the public shell.
+          this.selectedFeedIdForEdit = feed.id
           this.editFeedDialogVisible = false
-          router.pushUrl({ url: 'pages/EditFeed', params: { feedId: feed.id } })
         })
       }, (feed: FeedRow) => feed.id.toString())
 
@@ -875,8 +911,66 @@ struct FeedList {
     .shadow({ radius: 16, color: '#33000000' })
   }
 
-  // === Context Menu (triggered by long-press) ===
-  private showContextMenu(article: ArticleRow) {
+  // === Presentation-only dialogs and context actions ===
+  @Builder
+  ArticleContextMenu() {
+    Column() {
+      this.ContextMenuItem('Mark Above as Read')
+      this.ContextMenuItem('Mark Below as Read')
+      this.ContextMenuItem('Toggle Bookmark')
+    }
+    .width(260)
+    .backgroundColor('#ffffff')
+    .borderRadius(8)
+    .shadow({ radius: 8, color: '#1a000000', offsetY: 2 })
+    .position({ x: '28%', y: '45%' })
+    .zIndex(300)
+  }
+
+  @Builder
+  ContextMenuItem(label: string) {
+    Row() {
+      Text(label)
+        .fontSize(16)
+        .fontColor('#212121')
+        .layoutWeight(1)
+    }
+    .width('100%')
+    .height(48)
+    .padding({ left: 16, right: 16 })
+    .onClick(() => {
+      // A shell action may only dismiss its own presentation.
+      this.articleContextMenuVisible = false
+    })
+  }
+
+  @Builder
+  OpmlUnavailableDialog() {
+    Column() {
+      Text(this.opmlUnavailableAction)
+        .fontSize(20)
+        .fontWeight(FontWeight.Medium)
+        .margin({ bottom: 16 })
+
+      Text('OPML import and export are unavailable in this UI shell.')
+        .fontSize(14)
+        .fontColor('#757575')
+        .margin({ bottom: 24 })
+
+      Button('Close')
+        .fontSize(14)
+        .fontColor($r('app.color.primary'))
+        .backgroundColor(Color.Transparent)
+        .onClick(() => {
+          this.opmlUnavailableAction = ''
+        })
+    }
+    .width('80%')
+    .padding(24)
+    .backgroundColor('#ffffff')
+    .borderRadius(16)
+    .shadow({ radius: 16, color: '#33000000' })
+    .zIndex(300)
   }
 
   // === Helpers ===

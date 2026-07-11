@@ -217,8 +217,12 @@ struct ArticleReader {
         this.overflowVisible = false
       })
 
-      // Mark as unread / Mark as read
+      // These entries are presentation-only in the inert public UI shell.
       this.OverflowMenuItem(this.isRead ? 'Mark as unread' : 'Mark as read', async () => {
+        this.overflowVisible = false
+      })
+
+      this.OverflowMenuItem('Save article', () => {
         this.overflowVisible = false
       })
     }
