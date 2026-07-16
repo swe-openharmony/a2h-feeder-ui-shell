@@ -1,0 +1,149 @@
+{
+  "plural": [
+    {
+      "name": "n_unread_articles",
+      "value": [
+        {
+          "quantity": "zero",
+          "value": "%1$s unread articles"
+        },
+        {
+          "quantity": "one",
+          "value": "%1$s unread article"
+        },
+        {
+          "quantity": "two",
+          "value": "%1$s unread articles"
+        },
+        {
+          "quantity": "few",
+          "value": "%1$s unread articles"
+        },
+        {
+          "quantity": "many",
+          "value": "%1$s unread articles"
+        },
+        {
+          "quantity": "other",
+          "value": "%1$s unread articles"
+        }
+      ]
+    },
+    {
+      "name": "n_feeds",
+      "value": [
+        {
+          "quantity": "zero",
+          "value": "%1$s feeds"
+        },
+        {
+          "quantity": "one",
+          "value": "%1$s feed"
+        },
+        {
+          "quantity": "two",
+          "value": "%1$s feeds"
+        },
+        {
+          "quantity": "few",
+          "value": "%1$s feeds"
+        },
+        {
+          "quantity": "many",
+          "value": "%1$s feeds"
+        },
+        {
+          "quantity": "other",
+          "value": "%1$s feeds"
+        }
+      ]
+    },
+    {
+      "name": "n_tags",
+      "value": [
+        {
+          "quantity": "zero",
+          "value": "%1$s tags"
+        },
+        {
+          "quantity": "one",
+          "value": "%1$s tag"
+        },
+        {
+          "quantity": "two",
+          "value": "%1$s tags"
+        },
+        {
+          "quantity": "few",
+          "value": "%1$s tags"
+        },
+        {
+          "quantity": "many",
+          "value": "%1$s tags"
+        },
+        {
+          "quantity": "other",
+          "value": "%1$s tags"
+        }
+      ]
+    },
+    {
+      "name": "n_words",
+      "value": [
+        {
+          "quantity": "zero",
+          "value": "%1$s words"
+        },
+        {
+          "quantity": "one",
+          "value": "%1$s word"
+        },
+        {
+          "quantity": "two",
+          "value": "%1$s words"
+        },
+        {
+          "quantity": "few",
+          "value": "%1$s words"
+        },
+        {
+          "quantity": "many",
+          "value": "%1$s words"
+        },
+        {
+          "quantity": "other",
+          "value": "%1$s words"
+        }
+      ]
+    },
+    {
+      "name": "n_minutes",
+      "value": [
+        {
+          "quantity": "zero",
+          "value": "%1$s minutes"
+        },
+        {
+          "quantity": "one",
+          "value": "%1$s minute"
+        },
+        {
+          "quantity": "two",
+          "value": "%1$s minutes"
+        },
+        {
+          "quantity": "few",
+          "value": "%1$s minutes"
+        },
+        {
+          "quantity": "many",
+          "value": "%1$s minutes"
+        },
+        {
+          "quantity": "other",
+          "value": "%1$s minutes"
+        }
+      ]
+    }
+  ]
+}
